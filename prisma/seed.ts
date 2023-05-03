@@ -1,12 +1,13 @@
 import prisma from '../lib/prisma'
 
 async function main() {
+  await prisma.users.deleteMany({})
   const response = await Promise.all([
     prisma.users.upsert({
       where: { email: 'rauchg@vercel.com' },
       update: {},
       create: {
-        name: 'Guillermo Rauch',
+        name: '山田太郎',
         email: 'rauchg@vercel.com',
         image:
           'https://pbs.twimg.com/profile_images/1576257734810312704/ucxb4lHy_400x400.jpg',
@@ -16,7 +17,7 @@ async function main() {
       where: { email: 'lee@vercel.com' },
       update: {},
       create: {
-        name: 'Lee Robinson',
+        name: '山下健太',
         email: 'lee@vercel.com',
         image:
           'https://pbs.twimg.com/profile_images/1587647097670467584/adWRdqQ6_400x400.jpg',
@@ -26,7 +27,7 @@ async function main() {
       where: { email: 'stey@vercel.com' },
       update: {},
       create: {
-        name: 'Steven Tey',
+        name: '石井仁美',
         email: 'stey@vercel.com',
         image:
           'https://pbs.twimg.com/profile_images/1506792347840888834/dS-r50Je_400x400.jpg',
